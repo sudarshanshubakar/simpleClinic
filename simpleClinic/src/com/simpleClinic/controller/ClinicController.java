@@ -1,8 +1,9 @@
 package com.simpleClinic.controller;
 
-import com.simpleClinic.model.Patient;
 import com.simpleClinic.model.PatientQueue;
 import com.simpleClinic.model.factories.PatientFactory;
+import com.simpleClinic.model.interfaces.Patient;
+import com.simpleClinic.model.interfaces.QueuedPatient;
 import com.simpleClinic.protocol.ClinicRequest;
 import com.simpleClinic.protocol.ClinicResponse;
 
@@ -31,9 +32,12 @@ public class ClinicController {
 	}
 	
 	public ClinicResponse getNextPatient(ClinicRequest request) {
-		String id = PatientQueue.getQueue().getNextPatient();
+		Patient patient = PatientQueue.getQueue().getNextPatient();
+		String id = patient.getID();
+		int queuePosition = ((QueuedPatient)patient).getQueuePosition();
 		ClinicResponse response = new ClinicResponse();
-		response.setAttribute("operationResult" , id);
+		response.setAttribute("patientId" , id);
+		response.setAttribute("patientQueuePosition", queuePosition);
 		return response;
 	}
 	

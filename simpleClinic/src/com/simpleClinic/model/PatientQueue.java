@@ -25,7 +25,7 @@ public class PatientQueue {
 		_persManager.create("patientQueue", valueMap);
 	}
 
-	public String getNextPatient() {
+	public QueuedNormalPatient getNextPatient() {
 		// TODO Auto-generated method stub
 		return null;
 	}

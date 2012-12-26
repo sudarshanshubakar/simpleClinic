@@ -1,11 +1,13 @@
 package com.simpleClinic.model;
 
-public class Patient {
+import com.simpleClinic.model.interfaces.Patient;
+
+public class NormalPatient implements Patient {
 
 	private String _name = "";
 	private String _ID = "";
 	
-	public Patient(String name) {
+	public NormalPatient(String name) {
 		this._name = name;
 	}
 	
@@ -17,4 +19,5 @@ public class Patient {
 		// TODO Auto-generated method stub
 		return _ID;
 	}
+
 }

@@ -1,6 +1,6 @@
 package com.simpleClinic.model.factories;
 
-import com.simpleClinic.model.Patient;
+import com.simpleClinic.model.NormalPatient;
 
 public class PatientFactory {
 	private static final PatientFactory _instance = new PatientFactory();
@@ -12,7 +12,7 @@ public class PatientFactory {
 		return _instance;
 	}
 	 
-	public Patient createPatient(String name)  {
+	public NormalPatient createPatient(String name)  {
 
 		return null;
 	}
