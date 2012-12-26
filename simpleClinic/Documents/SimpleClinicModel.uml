@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_3t_cAEimEeKivPtKaDz9Yw" name="Model">
+  <packageImport xmi:id="_3t_cAUimEeKivPtKaDz9Yw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_3wq8kEimEeKivPtKaDz9Yw" name="Interaction1"/>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_31lRwEimEeKivPtKaDz9Yw" name="Interaction2"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_30kIoEinEeKivPtKaDz9Yw" name="Patient">
+    <ownedOperation xmi:id="_CnSrYEioEeKivPtKaDz9Yw" name="getId"/>
+    <ownedOperation xmi:id="_FEtJAEioEeKivPtKaDz9Yw" name="getName"/>
+    <ownedOperation xmi:id="_WH49MEioEeKivPtKaDz9Yw" name="getIllnessHistory"/>
+    <ownedOperation xmi:id="_Z7ysoEioEeKivPtKaDz9Yw" name="getVisitHistory"/>
+    <ownedOperation xmi:id="_d_zUoEioEeKivPtKaDz9Yw" name="getContactDetails"/>
+    <ownedOperation xmi:id="_C8Bv0EipEeKivPtKaDz9Yw" name="getConductedTests"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_BjLGgEipEeKivPtKaDz9Yw" name="Tests">
+    <ownedComment xmi:id="_2nvW4EisEeKivPtKaDz9Yw">
+      <body>http://ermaster.sourceforge.net/update-site/</body>
+    </ownedComment>
+    <ownedComment xmi:id="_3trrQEisEeKivPtKaDz9Yw">
+      <body>http://ermaster.sourceforge.net/update-site/</body>
+    </ownedComment>
+    <ownedComment xmi:id="_36R80EisEeKivPtKaDz9Yw">
+      <body>http://ermaster.sourceforge.net/update-site/</body>
+    </ownedComment>
+    <ownedComment xmi:id="_3-hjoEisEeKivPtKaDz9Yw">
+      <body>http://ermaster.sourceforge.net/update-site/</body>
+    </ownedComment>
+    <ownedOperation xmi:id="_WXCXAEipEeKivPtKaDz9Yw" name="getTestDate"/>
+    <ownedOperation xmi:id="_Y4xT8EipEeKivPtKaDz9Yw" name="getTestResult"/>
+    <ownedOperation xmi:id="_azJ9AEipEeKivPtKaDz9Yw" name="getConclusion"/>
+    <ownedOperation xmi:id="_JpnpMEipEeKivPtKaDz9Yw" name="getid"/>
+    <ownedOperation xmi:id="_UhJMYEipEeKivPtKaDz9Yw" name="getName"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_jYnW8EipEeKivPtKaDz9Yw" name="has" memberEnd="_jYnW8UipEeKivPtKaDz9Yw _jYmv4EipEeKivPtKaDz9Yw">
+    <ownedEnd xmi:id="_jYnW8UipEeKivPtKaDz9Yw" name="tests" type="_BjLGgEipEeKivPtKaDz9Yw" aggregation="composite" association="_jYnW8EipEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jYnW8kipEeKivPtKaDz9Yw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jYnW80ipEeKivPtKaDz9Yw" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_jYmv4EipEeKivPtKaDz9Yw" name="patient" type="_30kIoEinEeKivPtKaDz9Yw" association="_jYnW8EipEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jYmv4UipEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jYmv4kipEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_gC4UwEiqEeKivPtKaDz9Yw" name="VisitHistory">
+    <ownedOperation xmi:id="_RU2koEirEeKivPtKaDz9Yw" name="getVisit"/>
+    <ownedOperation xmi:id="_TCubsEirEeKivPtKaDz9Yw" name="getAllVisits"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_GGXS8kirEeKivPtKaDz9Yw" name="has" memberEnd="_GGXS80irEeKivPtKaDz9Yw _GGWr4EirEeKivPtKaDz9Yw">
+    <ownedEnd xmi:id="_GGXS80irEeKivPtKaDz9Yw" name="visitHistory" type="_gC4UwEiqEeKivPtKaDz9Yw" aggregation="composite" association="_GGXS8kirEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GGXS9EirEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GGXS9UirEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_GGWr4EirEeKivPtKaDz9Yw" name="patient" type="_30kIoEinEeKivPtKaDz9Yw" association="_GGXS8kirEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GGXS8EirEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GGXS8UirEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_XMV8cEirEeKivPtKaDz9Yw" name="Visit">
+    <ownedComment xmi:id="_ykOeIEisEeKivPtKaDz9Yw">
+      <body>http://ermaster.sourceforge.net/update-site/</body>
+    </ownedComment>
+    <ownedOperation xmi:id="_h2dVwEirEeKivPtKaDz9Yw" name="getIllness"/>
+    <ownedOperation xmi:id="_ja8nUEirEeKivPtKaDz9Yw" name="getDiagnosis"/>
+    <ownedOperation xmi:id="_ogHKUEirEeKivPtKaDz9Yw" name="getPrescription"/>
+    <ownedOperation xmi:id="_08Qh8EirEeKivPtKaDz9Yw" name="getDate"/>
+    <ownedOperation xmi:id="_69cy4EisEeKivPtKaDz9Yw" name="getId"/>
+    <ownedOperation xmi:id="_7u9vYEisEeKivPtKaDz9Yw" name=""/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_5zNCw0irEeKivPtKaDz9Yw" name="has" memberEnd="_5zNCxEirEeKivPtKaDz9Yw _5zNCwEirEeKivPtKaDz9Yw">
+    <ownedEnd xmi:id="_5zNCxEirEeKivPtKaDz9Yw" name="visit" type="_XMV8cEirEeKivPtKaDz9Yw" aggregation="shared" association="_5zNCw0irEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5zNCxUirEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5zNCxkirEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_5zNCwEirEeKivPtKaDz9Yw" name="visitHistory" type="_gC4UwEiqEeKivPtKaDz9Yw" association="_5zNCw0irEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5zNCwUirEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5zNCwkirEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_VrW1YEisEeKivPtKaDz9Yw" name="Illness">
+    <ownedOperation xmi:id="_euseIEisEeKivPtKaDz9Yw" name="getStatus"/>
+    <ownedOperation xmi:id="_9rUuYEisEeKivPtKaDz9Yw" name="getId"/>
+    <ownedOperation xmi:id="_-XuhYEisEeKivPtKaDz9Yw" name="getName"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_FclrQEitEeKivPtKaDz9Yw" name="has" memberEnd="_FclrQUitEeKivPtKaDz9Yw _FclEMEitEeKivPtKaDz9Yw">
+    <ownedEnd xmi:id="_FclrQUitEeKivPtKaDz9Yw" name="visit" type="_XMV8cEirEeKivPtKaDz9Yw" association="_FclrQEitEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FclrQkitEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FclrQ0itEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_FclEMEitEeKivPtKaDz9Yw" name="illness" type="_VrW1YEisEeKivPtKaDz9Yw" aggregation="shared" association="_FclrQEitEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FclEMUitEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FclEMkitEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_qpC60EitEeKivPtKaDz9Yw" name="Treatment">
+    <ownedOperation xmi:id="_sUbekEitEeKivPtKaDz9Yw" name="getId"/>
+    <ownedOperation xmi:id="_tC5HEEitEeKivPtKaDz9Yw" name="getName"/>
+    <ownedOperation xmi:id="_tvZAsEitEeKivPtKaDz9Yw" name="getStatus"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2oYaoEitEeKivPtKaDz9Yw" name="has" memberEnd="_2oYaoUitEeKivPtKaDz9Yw _2oXzkEitEeKivPtKaDz9Yw">
+    <ownedEnd xmi:id="_2oYaoUitEeKivPtKaDz9Yw" name="treatment" type="_qpC60EitEeKivPtKaDz9Yw" aggregation="shared" association="_2oYaoEitEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2oYaokitEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2oYao0itEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2oXzkEitEeKivPtKaDz9Yw" name="illness" type="_VrW1YEisEeKivPtKaDz9Yw" association="_2oYaoEitEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2oXzkUitEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2oXzkkitEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_HIR7kEiuEeKivPtKaDz9Yw" name="Prescriptio"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_VeCgMEiuEeKivPtKaDz9Yw" name="Prescription">
+    <ownedOperation xmi:id="_Xkuf4EiuEeKivPtKaDz9Yw" name="getPrescription"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_gx-5oUiuEeKivPtKaDz9Yw" name="has" memberEnd="_gx-5okiuEeKivPtKaDz9Yw _gx-SkEiuEeKivPtKaDz9Yw">
+    <ownedEnd xmi:id="_gx-5okiuEeKivPtKaDz9Yw" name="prescription" type="_VeCgMEiuEeKivPtKaDz9Yw" aggregation="shared" association="_gx-5oUiuEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gx-5o0iuEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gx-5pEiuEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_gx-SkEiuEeKivPtKaDz9Yw" name="treatment" type="_qpC60EitEeKivPtKaDz9Yw" association="_gx-5oUiuEeKivPtKaDz9Yw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gx-SkUiuEeKivPtKaDz9Yw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gx-5oEiuEeKivPtKaDz9Yw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>
