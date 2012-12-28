@@ -1,7 +1,10 @@
 package com.simpleClinic.controller;
 
+import java.util.Map;
+
 import com.simpleClinic.model.PatientQueue;
 import com.simpleClinic.model.factories.PatientFactory;
+import com.simpleClinic.model.helpers.PatientFinder;
 import com.simpleClinic.model.interfaces.Patient;
 import com.simpleClinic.model.interfaces.QueuedPatient;
 import com.simpleClinic.protocol.ClinicRequest;
@@ -10,7 +13,7 @@ import com.simpleClinic.protocol.ClinicResponse;
 public class ClinicController {
 
 	public ClinicResponse createPatient(ClinicRequest request) {
-		String name = request.getAttribute("name");
+		String name = (String) request.getAttribute("name");
 		Patient patient = PatientFactory.getPatientFactory().createPatient(name);
 		ClinicResponse response = new ClinicResponse();
 		response.setAttribute("operationResult" , patient.getID());
@@ -18,17 +21,19 @@ public class ClinicController {
 	}
 	
 	public ClinicResponse addPatientToQueue(ClinicRequest request) {
-		String id = request.getAttribute("id");
+		String id = (String) request.getAttribute("id");
 		PatientQueue.getQueue().addPatient(id);
 		return null;
 	}
 	
 	public ClinicResponse findPatient(ClinicRequest request) {
-		String findBy = request.getAttribute("findBy");
-		String criteria = request.getAttribute("criteria");
+		String findBy = (String) request.getAttribute("findBy");
+		String criteria = (String) request.getAttribute("criteria");
+		String patientId = PatientFinder.getInstance().find(findBy, criteria).get_id();
 		
-		
-		return null;
+		ClinicResponse response = new ClinicResponse();
+		response.setAttribute("patientId", patientId);
+		return response;
 	}
 	
 	public ClinicResponse getNextPatient(ClinicRequest request) {
@@ -42,7 +47,8 @@ public class ClinicController {
 	}
 	
 	public ClinicResponse savePatientVisit(ClinicRequest request) {
-		
+		Map<String, String> visitMap = (Map<String, String>) request.getAttribute("visitMap");
+		String id = (String) request.getAttribute("patientId");
 		
 		return null;
 	}

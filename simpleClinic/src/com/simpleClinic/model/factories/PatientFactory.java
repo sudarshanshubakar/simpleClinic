@@ -1,6 +1,8 @@
 package com.simpleClinic.model.factories;
 
-import com.simpleClinic.model.NormalPatient;
+import java.util.Map;
+
+import com.simpleClinic.model.interfaces.Patient;
 
 public class PatientFactory {
 	private static final PatientFactory _instance = new PatientFactory();
@@ -12,9 +14,13 @@ public class PatientFactory {
 		return _instance;
 	}
 	 
-	public NormalPatient createPatient(String name)  {
+	public Patient createPatient(String name)  {
 
 		return null;
+	}
+	
+	public void savePatientDetails(Map<String, String> patientDetails) {
+		
 	}
 	
 }

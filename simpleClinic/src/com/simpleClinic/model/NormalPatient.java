@@ -4,10 +4,11 @@ import com.simpleClinic.model.interfaces.Patient;
 
 public class NormalPatient implements Patient {
 
-	private String _name = "";
-	private String _ID = "";
+	private final String _name;
+	private final String _ID;
 	
-	public NormalPatient(String name) {
+	public NormalPatient(String id, String name) {
+		this._ID = id;
 		this._name = name;
 	}
 	

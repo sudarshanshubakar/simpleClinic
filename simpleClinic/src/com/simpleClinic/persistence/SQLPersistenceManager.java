@@ -3,6 +3,8 @@ package com.simpleClinic.persistence;
 import java.util.List;
 import java.util.Map;
 
+import com.simpleClinic.model.helpers.PatientDTO;
+
 public class SQLPersistenceManager implements PersistenceManager {
 
 	@Override
@@ -12,7 +14,7 @@ public class SQLPersistenceManager implements PersistenceManager {
 	}
 
 	@Override
-	public List read(String entity, Map<String, String> whereConditions) {
+	public List<PatientDTO> read(String entity, Map<String, String> whereConditions) {
 		// TODO Auto-generated method stub
 		return null;
 	}
