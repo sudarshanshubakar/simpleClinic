@@ -1,6 +1,6 @@
 package com.simpleClinic.model.helpers;
 
-public class PatientDTO {
+public class PatientDTO implements Comparable<PatientDTO> {
 
 	private final String _id;
 	private final String _name;
@@ -10,14 +10,31 @@ public class PatientDTO {
 		this._name = _name;
 		this._queuePosition = _queuePosition;
 	}
-	public String get_id() {
+	
+	
+	
+	public String getId() {
 		return _id;
 	}
-	public String get_name() {
+	public String getName() {
 		return _name;
 	}
-	public int get_queuePosition() {
+	public int getQueuePosition() {
 		return _queuePosition;
+	}
+
+
+
+	@Override
+	public int compareTo(PatientDTO patientDTO) {
+		// TODO Auto-generated method stub
+		if (_queuePosition > patientDTO.getQueuePosition()) {
+			return 1;
+		} else if(_queuePosition < patientDTO.getQueuePosition()) {
+			return -1;
+		}
+			
+		return 0;
 	}
 	
 	

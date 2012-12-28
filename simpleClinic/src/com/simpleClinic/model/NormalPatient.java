@@ -1,5 +1,6 @@
 package com.simpleClinic.model;
 
+import com.simpleClinic.model.helpers.PatientDTO;
 import com.simpleClinic.model.interfaces.Patient;
 
 public class NormalPatient implements Patient {
@@ -20,5 +21,13 @@ public class NormalPatient implements Patient {
 		// TODO Auto-generated method stub
 		return _ID;
 	}
+
+	@Override
+	public PatientDTO getDTO() {
+		// TODO Auto-generated method stub
+		return new PatientDTO(_ID, _name, 0);
+	}
+
+
 
 }

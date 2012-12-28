@@ -4,32 +4,35 @@ import java.util.Map;
 
 import com.simpleClinic.model.PatientQueue;
 import com.simpleClinic.model.factories.PatientFactory;
-import com.simpleClinic.model.helpers.PatientFinder;
+import com.simpleClinic.model.helpers.PatientDTO;
+import com.simpleClinic.model.helpers.PatientHelper;
 import com.simpleClinic.model.interfaces.Patient;
 import com.simpleClinic.model.interfaces.QueuedPatient;
 import com.simpleClinic.protocol.ClinicRequest;
 import com.simpleClinic.protocol.ClinicResponse;
 
 public class ClinicController {
+	private final PatientHelper _patientHelper = PatientHelper.getInstance();
 
 	public ClinicResponse createPatient(ClinicRequest request) {
 		String name = (String) request.getAttribute("name");
-		Patient patient = PatientFactory.getPatientFactory().createPatient(name);
+		PatientDTO patient = _patientHelper.create(name);
 		ClinicResponse response = new ClinicResponse();
-		response.setAttribute("operationResult" , patient.getID());
+		response.setAttribute("operationResult" , patient.getId());
 		return response;
 	}
 	
 	public ClinicResponse addPatientToQueue(ClinicRequest request) {
 		String id = (String) request.getAttribute("id");
-		PatientQueue.getQueue().addPatient(id);
+		_patientHelper.addPatientToQueue(id);
+	
 		return null;
 	}
 	
 	public ClinicResponse findPatient(ClinicRequest request) {
 		String findBy = (String) request.getAttribute("findBy");
 		String criteria = (String) request.getAttribute("criteria");
-		String patientId = PatientFinder.getInstance().find(findBy, criteria).get_id();
+		String patientId = _patientHelper.find(findBy, criteria).getId();
 		
 		ClinicResponse response = new ClinicResponse();
 		response.setAttribute("patientId", patientId);
@@ -37,9 +40,9 @@ public class ClinicController {
 	}
 	
 	public ClinicResponse getNextPatient(ClinicRequest request) {
-		Patient patient = PatientQueue.getQueue().getNextPatient();
-		String id = patient.getID();
-		int queuePosition = ((QueuedPatient)patient).getQueuePosition();
+		PatientDTO patient = _patientHelper.getNextPatientFromQueue();
+		String id = patient.getId();
+		int queuePosition = patient.getQueuePosition();
 		ClinicResponse response = new ClinicResponse();
 		response.setAttribute("patientId" , id);
 		response.setAttribute("patientQueuePosition", queuePosition);
