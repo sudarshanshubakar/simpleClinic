@@ -1,5 +1,10 @@
 package com.simpleClinic.model.helpers;
 
+import java.util.List;
+
+import com.simpleClinic.dataTransfer.DTO;
+import com.simpleClinic.dataTransfer.PatientAttributes;
+import com.simpleClinic.dataTransfer.VisitAttributes;
 import com.simpleClinic.model.PatientQueue;
 import com.simpleClinic.model.factories.PatientFactory;
 import com.simpleClinic.model.interfaces.Patient;
@@ -15,11 +20,11 @@ public class PatientHelper {
 		return _instance;
 	}
 	
-	public PatientDTO find(String findBy, String criteria) {
-		return new PatientDTO(null, null, 0);
+	public DTO<PatientAttributes> find(String findBy, String criteria) {
+		return DTO.getInstance(PatientAttributes.class);
 	}
 	
-	public PatientDTO create(String name) {
+	public DTO<PatientAttributes> create(String name) {
 		Patient patient = PatientFactory.getPatientFactory().createPatient(name);
 		return patient.getDTO();
 	}
@@ -28,9 +33,14 @@ public class PatientHelper {
 		PatientQueue.getQueue().addPatient(id);
 	}
 	
-	public PatientDTO getNextPatientFromQueue() {
-		PatientDTO patient = PatientQueue.getQueue().getNextPatient();
+	public DTO<PatientAttributes> getNextPatientFromQueue() {
+		DTO<PatientAttributes> patient = PatientQueue.getQueue().getNextPatient();
 		return patient;
+	}
+
+	public List<DTO<VisitAttributes>> getVisitHistory(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

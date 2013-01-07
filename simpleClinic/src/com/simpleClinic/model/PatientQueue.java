@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.simpleClinic.model.helpers.PatientDTO;
+import com.simpleClinic.dataTransfer.AttributeGroup;
+import com.simpleClinic.dataTransfer.DTO;
+import com.simpleClinic.dataTransfer.PatientAttributes;
+import com.simpleClinic.dataTransfer.PatientDTOComparator;
 import com.simpleClinic.persistence.PersistenceManager;
 import com.simpleClinic.persistence.factories.PersistenceManagerFactory;
 
@@ -28,16 +31,18 @@ public class PatientQueue {
 		_persManager.create("patientQueue", valueMap);
 	}
 
-	public PatientDTO getNextPatient() {
+	//@SuppressWarnings("unchecked")
+	public DTO<PatientAttributes> getNextPatient() {
 
-		List<PatientDTO> dtos = _persManager.read("patientQueue", null);
+		List<DTO<? extends AttributeGroup>> dtos = _persManager.read("patientQueue", null);
 
-		Collections.sort(dtos);
+		Collections.sort(dtos, PatientDTOComparator.getInstance());
 		
 		
-		PatientDTO patient = dtos.get(0);
+		@SuppressWarnings("unchecked")
+		DTO<PatientAttributes> patient = (DTO<PatientAttributes>) dtos.get(0);
 		
-		_persManager.delete("patientQueue", patient.getId());
+		_persManager.delete("patientQueue", patient.get(PatientAttributes.instance().id));
 		
 		return patient;
 	}

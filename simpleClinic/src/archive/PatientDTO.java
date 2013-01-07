@@ -1,4 +1,4 @@
-package com.simpleClinic.model.helpers;
+package archive;
 
 public class PatientDTO implements Comparable<PatientDTO> {
 

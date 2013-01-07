@@ -1,6 +1,7 @@
 package com.simpleClinic.model;
 
-import com.simpleClinic.model.helpers.PatientDTO;
+import com.simpleClinic.dataTransfer.DTO;
+import com.simpleClinic.dataTransfer.PatientAttributes;
 import com.simpleClinic.model.interfaces.QueuedPatient;
 
 public class QueuedNormalPatient implements QueuedPatient{
@@ -39,9 +40,15 @@ public class QueuedNormalPatient implements QueuedPatient{
 	}
 
 	@Override
-	public PatientDTO getDTO() {
+	public DTO<PatientAttributes> getDTO() {
 		// TODO Auto-generated method stub
-		return new PatientDTO(getID(), getName(), getQueuePosition());
+		return null;
 	}
+
+//	@Override
+//	public PatientDTO getDTO() {
+//		// TODO Auto-generated method stub
+//		return new PatientDTO(getID(), getName(), getQueuePosition());
+//	}
 
 }

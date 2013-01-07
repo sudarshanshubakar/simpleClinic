@@ -1,7 +1,10 @@
 package com.simpleClinic.model.factories;
 
 import java.util.Date;
+import java.util.List;
 
+import com.simpleClinic.dataTransfer.DTO;
+import com.simpleClinic.dataTransfer.VisitAttributes;
 import com.simpleClinic.model.Visit;
 
 public class VisitFactory {
@@ -21,6 +24,10 @@ public class VisitFactory {
 		Visit visit = new Visit(id, visitDate, comments, patientId);
 		return visit.getId();
 		
+	}
+	
+	public final List<DTO<VisitAttributes>> getVisitsForPatient(String id) {
+		return null;
 	}
 	
 }

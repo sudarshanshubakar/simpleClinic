@@ -1,6 +1,7 @@
 package com.simpleClinic.model.interfaces;
 
-import com.simpleClinic.model.helpers.PatientDTO;
+import com.simpleClinic.dataTransfer.DTO;
+import com.simpleClinic.dataTransfer.PatientAttributes;
 
 public interface Patient {
 
@@ -8,6 +9,6 @@ public interface Patient {
 	
 	public String getID();
 	
-	public PatientDTO getDTO();
+	public DTO<PatientAttributes> getDTO();
 	
 }
