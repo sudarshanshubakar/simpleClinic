@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.simpleClinic.dataTransfer.DTO;
 import com.simpleClinic.dataTransfer.PatientAttributes;
+import com.simpleClinic.dataTransfer.PatientDTOAssembler;
 import com.simpleClinic.dataTransfer.VisitAttributes;
+import com.simpleClinic.exceptions.ClinicException;
 import com.simpleClinic.model.PatientQueue;
 import com.simpleClinic.model.factories.PatientFactory;
 import com.simpleClinic.model.interfaces.Patient;
@@ -24,9 +26,10 @@ public class PatientHelper {
 		return DTO.getInstance(PatientAttributes.class);
 	}
 	
-	public DTO<PatientAttributes> create(String name) {
+	public DTO<PatientAttributes> create(String name) throws ClinicException {
 		Patient patient = PatientFactory.getPatientFactory().createPatient(name);
-		return patient.getDTO();
+		DTO<PatientAttributes> patientDTO = PatientDTOAssembler.getInstance().createPatientDTO(patient);
+		return patientDTO;
 	}
 	
 	public void addPatientToQueue(String id) {

@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.simpleClinic.dataTransfer.AttributeGroup;
 import com.simpleClinic.dataTransfer.DTO;
 import com.simpleClinic.dataTransfer.PatientAttributes;
 import com.simpleClinic.dataTransfer.PatientDTOComparator;
@@ -31,16 +30,14 @@ public class PatientQueue {
 		_persManager.create("patientQueue", valueMap);
 	}
 
-	//@SuppressWarnings("unchecked")
 	public DTO<PatientAttributes> getNextPatient() {
 
-		List<DTO<? extends AttributeGroup>> dtos = _persManager.read("patientQueue", null);
+		List<DTO<PatientAttributes>> dtos = _persManager.read("patientQueue", null, PatientAttributes.class);
 
-		Collections.sort(dtos, PatientDTOComparator.getInstance());
+		Collections.sort(dtos, new PatientDTOComparator<PatientAttributes>());
 		
 		
-		@SuppressWarnings("unchecked")
-		DTO<PatientAttributes> patient = (DTO<PatientAttributes>) dtos.get(0);
+		DTO<PatientAttributes> patient = dtos.get(0);
 		
 		_persManager.delete("patientQueue", patient.get(PatientAttributes.instance().id));
 		

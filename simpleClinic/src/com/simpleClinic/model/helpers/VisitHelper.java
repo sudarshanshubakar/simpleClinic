@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.simpleClinic.dataTransfer.AttributeGroup;
 import com.simpleClinic.dataTransfer.DTO;
 import com.simpleClinic.dataTransfer.VisitAttributes;
 import com.simpleClinic.model.factories.VisitFactory;
@@ -36,10 +35,10 @@ public class VisitHelper {
 		return visitId;
 	}
 	
-	public final List<DTO<? extends AttributeGroup>> getVisitsForPatient(String patientId) {
+	public final List<DTO<VisitAttributes>> getVisitsForPatient(String patientId) {
 		Map<String, String> whereConditions = new HashMap<String, String>();
 		whereConditions.put("relatedPatientId", patientId);
-		List<DTO<? extends AttributeGroup>> visitList = _persManager.read("visit", whereConditions);
+		List<DTO<VisitAttributes>> visitList = _persManager.read("visit", whereConditions, VisitAttributes.class);
 		return visitList;
 	}
 }

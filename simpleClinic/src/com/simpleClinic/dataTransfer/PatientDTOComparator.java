@@ -2,24 +2,20 @@ package com.simpleClinic.dataTransfer;
 
 import java.util.Comparator;
 
-public class PatientDTOComparator<G extends AttributeGroup> implements Comparator<DTO<AttributeGroup>> {
+public class PatientDTOComparator<G extends AttributeGroup> implements Comparator<DTO<G>> {
 
-	private static final PatientDTOComparator<AttributeGroup> _INSTANCE = new PatientDTOComparator<AttributeGroup>();
 	
-	public static PatientDTOComparator getInstance() {
-		return _INSTANCE;
-	}
-	
+	@SuppressWarnings("unchecked")
 	@Override
-	public int compare(DTO<AttributeGroup> dto1, DTO<AttributeGroup> dto2) {
+	public  int compare(DTO<G> dto1, DTO<G> dto2) {
 		// TODO Auto-generated method stub
-//		if (dto1.get(PatientAttributes.instance().queuePosition) > dto2
-//				.get(PatientAttributes.instance().queuePosition)) {
-//			return 1;
-//		} else if (dto1.get(PatientAttributes.instance().queuePosition) < dto2
-//				.get(PatientAttributes.instance().queuePosition)) {
-//			return -1;
-//		}
+		if (dto1.get((Attribute<G, Integer>) PatientAttributes.instance().queuePosition) > dto2
+				.get((Attribute<G, Integer>) PatientAttributes.instance().queuePosition)) {
+			return 1;
+		} else if (dto1.get((Attribute<G, Integer>) PatientAttributes.instance().queuePosition) < dto2
+				.get((Attribute<G, Integer>) PatientAttributes.instance().queuePosition)) {
+			return -1;
+		}
 		return 0;
 	}
 }

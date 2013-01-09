@@ -39,16 +39,4 @@ public class QueuedNormalPatient implements QueuedPatient{
 		return 0;
 	}
 
-	@Override
-	public DTO<PatientAttributes> getDTO() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-//	@Override
-//	public PatientDTO getDTO() {
-//		// TODO Auto-generated method stub
-//		return new PatientDTO(getID(), getName(), getQueuePosition());
-//	}
-
 }

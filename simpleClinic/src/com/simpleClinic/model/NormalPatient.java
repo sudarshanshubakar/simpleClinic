@@ -1,7 +1,5 @@
 package com.simpleClinic.model;
 
-import com.simpleClinic.dataTransfer.DTO;
-import com.simpleClinic.dataTransfer.PatientAttributes;
 import com.simpleClinic.model.interfaces.Patient;
 
 public class NormalPatient implements Patient {
@@ -22,19 +20,5 @@ public class NormalPatient implements Patient {
 		// TODO Auto-generated method stub
 		return _ID;
 	}
-
-	@Override
-	public DTO<PatientAttributes> getDTO() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-//	@Override
-//	public PatientDTO getDTO() {
-//		// TODO Auto-generated method stub
-//		return new PatientDTO(_ID, _name, 0);
-//	}
-
-
 
 }

@@ -1,10 +1,19 @@
 package com.simpleClinic.protocol;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ClinicRequest {
 
-	public Object getAttribute(Object name) {
+	Map<String, Object> _attributeMap = new HashMap<String, Object>();
+	
+	public Object getAttribute(String name) {
 		// TODO Auto-generated method stub
-		return null;
+		return _attributeMap.get(name);
+	}
+	
+	public void setAttribute(String name, Object value) {
+		_attributeMap.put(name, value);
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.simpleClinic.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,11 +15,11 @@ public class SQLPersistenceManager implements PersistenceManager {
 		return null;
 	}
 
-	@Override
-	public List<DTO<? extends AttributeGroup>> read(String entity, Map<String, String> whereConditions) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<DTO<? extends AttributeGroup>> read(String entity, Map<String, String> whereConditions) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public void update(String entityType, String entityId,
@@ -32,5 +33,23 @@ public class SQLPersistenceManager implements PersistenceManager {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public <T extends AttributeGroup> List<DTO<T>> read(String entity,
+			Map<String, String> whereConditions, Class<T> clazz) {
+		// TODO Auto-generated method stub
+		List<DTO<T>> returnList = new ArrayList<DTO<T>>();
+		DTO<T> dto1 = DTO.getInstance(clazz);
+		returnList.add(dto1);
+		return returnList;
+	}
+
+
+
+//	@Override
+//	public <T> List<T> read(String entity, Map<String, String> whereConditions) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }

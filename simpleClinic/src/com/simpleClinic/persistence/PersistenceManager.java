@@ -11,7 +11,8 @@ public interface PersistenceManager {
 
 	public String create(String entityType, Map<String, String> values);
 	
-	public List<DTO<? extends AttributeGroup>> read(String entity, Map<String, String> whereConditions);
+//	public List<DTO<? extends AttributeGroup>> read(String entity, Map<String, String> whereConditions);
+	public <T extends AttributeGroup> List<DTO<T>> read(String entity, Map<String, String> whereConditions, Class<T> clazz);
 	
 	public void update(String entityType, String entityId, Map<String, String> values);
 	
